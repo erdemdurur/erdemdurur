@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+
+        /* Navbar stilleri */
+        nav {
+            background-color: #cc0000; /* Kırmızı arka plan rengi */
+            width: 200px; /* Navbar genişliği */
+            height: 100vh; /* Tam yükseklik */
+            position: fixed; /* Sabit konum */
+            left: -200px; /* Başlangıçta gizli */
+            transition: left 0.3s; /* Geçiş efekti */
+            z-index: 1000; /* Üstte görünmesi için */
+            display: flex;
+            flex-direction: column; /* Dikey hizalama */
+            justify-content: center; /* Dikey ortalama */
+            align-items: center; /* Yatay ortalama */
+        }
+        
+        nav.open {
+            left: 0; /* Açıldığında görünür hale gelir */
+        }
+
+        nav ul {
+            list-style-type: none; /* Liste noktalarını kaldır */
+            padding: 0; /* İç boşluğu kaldır */
+            margin: 0; /* Dış boşluğu kaldır */
+            text-align: center; /* Metni ortala */
+        }
+        
+        nav ul li {
+            margin: 20px 0; /* Öğeler arasında boşluk */
+        }
+        
+        nav a {
+            color: white; /* Yazı rengi */
+            text-decoration: none; /* Alt çizgiyi kaldır */
+            font-weight: bold; /* Kalın yazı */
+        }
+        
+        nav a:hover {
+            text-decoration: underline; /* Üzerine gelince alt çizgi ekle */
+            color: #ffcc00; /* Üzerine gelince yazı rengi değişir */
+        }
+
+        /* İçerik stilleri */
+        .content {
+            margin-left: 220px; /* Navbar genişliği kadar boşluk bırakır */
+            padding: 20px; /* İç boşluk */
+            flex: 1; /* İçerik alanını genişletir */
+        }
+
+        .toggle-btn {
+            background-color: #cc0000; /* Buton rengi */
+            color: white; /* Buton yazı rengi */
+            border: none; /* Kenarlık yok */
+            padding: 10px 15px; /* Buton içi boşluk */
+            cursor: pointer; /* İmleç değişimi */
+            position: fixed; /* Sabit konum */
+            left: 10px; /* Sol kenar */
+            top: 20px; /* Üst kenar */
+            z-index: 1001; /* Üstte görünmesi için */
+            border-radius: 5px; /* Buton kenarlarını yuvarlar */
+        }
+
+        .toggle-btn:hover {
+            background-color: #b30000; /* Üzerine gelince buton rengi değişir */
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" aria-expanded="false" onclick="toggleNavbar()">Seçenekler</button>
+
+    <nav id="sidebar">
+        <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+            <li><a href="projeler.html">Projeler</a></li>
+            <li><a href="anket.html">Anket</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+       
+        <div class="container mt-5">
+            <h1>İletişim</h1>
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text"><strong>Ad Soyad:</strong> Erdem Durur</p>
+                    <p class="card-text"><strong>Telefon Numarası:</strong>+90 507 503 10 63</p>
+                    <p class="card-text"><strong>E-posta:</strong> erdem243565@ogr.duzce.edu.tr</p>
+                    <p class="card-text"><strong>Adres:</strong> Yörük, Düzce Ünv., 81620 Yörük/Düzce Merkez/Düzce</p>
+                </div>
+            </div>
+    
+
+    <script>
+        function toggleNavbar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+            const button = document.querySelector('.toggle-btn');
+            const isOpen = sidebar.classList.contains('open');
+            button.setAttribute('aria-expanded', isOpen);
+        }
+    </script>
+</body>
+</html>

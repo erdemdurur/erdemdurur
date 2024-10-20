@@ -1,0 +1,139 @@
+body {
+    display: flex;
+    flex-direction: row; /* Yatay hizalama */
+    margin: 0; /* Varsayılan margin sıfırlanır */
+    padding: 0; /* Varsayılan padding sıfırlanır */
+    font-family: Arial, sans-serif; /* Yazı tipi */
+    background-color: #ffffff; /* Beyaz arka plan */
+    min-height: 100vh; /* En az 100% yükseklik */
+}
+
+h2 {
+    position: relative; /* Eğer kesin bir konum istiyorsan absolute kullanabilirsin */
+    top: 20px; /* Yukarıdan 20px boşluk bırak */
+    left: 0; /* Soldan 0px boşluk */
+    text-align: left; /* Metni sola hizala */
+
+
+h3 {
+    margin-right: 20px; /* H3 başlığı ile metin arasına boşluk ekle */
+    text-align: left; /* Metin hizalaması sola ayarlanır */
+    .education-info {
+        display: flex; /* Flexbox ile hizalama */
+        align-items: flex-start; /* Başlığın üst kısmıyla hizala */
+        margin-top: -10px; /* Gerekirse ayarlamak için */
+    }
+    
+    h3 {
+        margin-right: 20px; /* H3 başlığı ile metin arasına boşluk ekle */
+        text-align: left; /* Metin hizalaması sola ayarlanır */
+    }
+    
+}
+
+
+
+/* Navbar stilleri */
+nav {
+    background-color: #cc0000; /* Koyu kırmızı arka plan rengi */
+    width: 200px; /* Navbar genişliği */
+    height: 100vh; /* Tam yükseklik */
+    position: fixed; /* Sabit konum */
+    left: -200px; /* Başlangıçta gizli */
+    transition: left 0.3s; /* Geçiş efekti */
+    z-index: 1000; /* Üstte görünmesi için */
+    display: flex;
+    flex-direction: column; /* Dikey hizalama */
+    justify-content: center; /* Dikey ortalama */
+    align-items: center; /* Yatay ortalama */
+}
+
+nav.open {
+    left: 0; /* Açıldığında görünür hale gelir */
+}
+
+nav ul {
+    list-style-type: none; /* Liste noktalarını kaldır */
+    padding: 0; /* İç boşluğu kaldır */
+    margin: 0; /* Dış boşluğu kaldır */
+    text-align: center; /* Metni ortala */
+}
+
+nav ul li {
+    margin: 20px 0; /* Öğeler arasında boşluk */
+}
+
+nav a {
+    color: white; /* Yazı rengi */
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    font-weight: bold; /* Kalın yazı */
+}
+
+nav a:hover {
+    text-decoration: underline; /* Üzerine gelince alt çizgi ekle */
+    color: #ffcc00; /* Üzerine gelince yazı rengi değişir */
+}
+
+/* İçerik stilleri */
+.content {
+    margin-left: 220px; /* Navbar genişliği kadar boşluk bırakır */
+    padding: 20px; /* İç boşluk */
+    flex: 1; /* İçerik alanını genişletir */
+    display: flex; /* Flexbox kullanarak ortalamak için */
+    flex-direction: column; /* Dikey hizalama */
+    align-items: center; /* Yatay ortalama */
+}
+
+/* Resim stilleri */
+.photo-container {
+    display: flex;
+    justify-content: center; /* Yatay olarak ortala */
+    margin-top: 40px; /* Üstten boşluk bırak */
+}
+
+.photo-container img {
+    width: 100%; /* Resmin genişliğini %100 yapar */
+    max-width: 500px; /* Maksimum genişlik */
+    height: auto; /* Yüksekliği otomatik ayarlar */
+    border-radius: 10px; /* Kenarları yuvarlar */
+}
+
+.toggle-btn {
+    background-color: #cc0000; /* Buton rengi */
+    color: white; /* Buton yazı rengi */
+    border: none; /* Kenarlık yok */
+    padding: 10px 15px; /* Buton içi boşluk */
+    cursor: pointer; /* İmleç değişimi */
+    position: fixed; /* Sabit konum */
+    left: 10px; /* Sol kenar */
+    top: 20px; /* Üst kenar */
+    z-index: 1001; /* Üstte görünmesi için */
+    border-radius: 5px; /* Buton kenarlarını yuvarlar */
+}
+
+.toggle-btn:hover {
+    background-color: #b30000; /* Üzerine gelince buton rengi değişir */
+}
+
+/* Mobil uyumlu tasarım */
+@media (max-width: 768px) {
+    nav {
+        width: 100%; /* Mobilde tam genişlik */
+        height: auto; /* Yükseklik otomatik */
+        position: relative; /* Göreceli konum */
+    }
+
+    nav.open {
+        left: 0; /* Açıldığında görünür hale gelir */
+    }
+
+    .content {
+        margin-left: 0; /* Navbar boşluğu kaldır */
+        padding: 10px; /* Daha az iç boşluk */
+    }
+
+    .toggle-btn {
+        left: 15px; /* Mobilde biraz daha sağa kaydır */
+        top: 15px; /* Mobilde biraz daha aşağıya kaydır */
+    }
+}

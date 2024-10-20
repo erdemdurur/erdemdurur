@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anket</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+
+      
+        /* Navbar stilleri */
+        nav {
+            background-color: #cc0000; /* Kırmızı arka plan rengi */
+            width: 200px; /* Navbar genişliği */
+            height: 100vh; /* Tam yükseklik */
+            position: fixed; /* Sabit konum */
+            left: -200px; /* Başlangıçta gizli */
+            transition: left 0.3s; /* Geçiş efekti */
+            z-index: 1000; /* Üstte görünmesi için */
+            display: flex;
+            flex-direction: column; /* Dikey hizalama */
+            justify-content: center; /* Dikey ortalama */
+            align-items: center; /* Yatay ortalama */
+        }
+        
+        nav.open {
+            left: 0; /* Açıldığında görünür hale gelir */
+        }
+
+        nav ul {
+            list-style-type: none; /* Liste noktalarını kaldır */
+            padding: 0; /* İç boşluğu kaldır */
+            margin: 0; /* Dış boşluğu kaldır */
+            text-align: center; /* Metni ortala */
+        }
+        
+        nav ul li {
+            margin: 20px 0; /* Öğeler arasında boşluk */
+        }
+        
+        nav a {
+            color: white; /* Yazı rengi */
+            text-decoration: none; /* Alt çizgiyi kaldır */
+            font-weight: bold; /* Kalın yazı */
+        }
+        
+        nav a:hover {
+            text-decoration: underline; /* Üzerine gelince alt çizgi ekle */
+            color: #ffcc00; /* Üzerine gelince yazı rengi değişir */
+        }
+
+        /* İçerik stilleri */
+        .content {
+            margin-left: 220px; /* Navbar genişliği kadar boşluk bırakır */
+            padding: 20px; /* İç boşluk */
+            flex: 1; /* İçerik alanını genişletir */
+        }
+
+        .toggle-btn {
+            background-color: #cc0000; /* Buton rengi */
+            color: white; /* Buton yazı rengi */
+            border: none; /* Kenarlık yok */
+            padding: 10px 15px; /* Buton içi boşluk */
+            cursor: pointer; /* İmleç değişimi */
+            position: fixed; /* Sabit konum */
+            left: 10px; /* Sol kenar */
+            top: 20px; /* Üst kenar */
+            z-index: 1001; /* Üstte görünmesi için */
+            border-radius: 5px; /* Buton kenarlarını yuvarlar */
+        }
+
+        .toggle-btn:hover {
+            background-color: #b30000; /* Üzerine gelince buton rengi değişir */
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" aria-expanded="false" onclick="toggleNavbar()">Seçenekler</button>
+
+    <nav id="sidebar">
+        <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+            <li><a href="projeler.html">Projeler</a></li>
+            <li><a href="anket.html">Anket</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>Anket</h1>
+       
+    </div>
+
+    <script>
+        function toggleNavbar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+            const button = document.querySelector('.toggle-btn');
+            const isOpen = sidebar.classList.contains('open');
+            button.setAttribute('aria-expanded', isOpen);
+        }
+    </script>
+    <!DOCTYPE html>
+    <html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                padding: 20px;
+                background-color: #f9f9f9;
+            }
+            .question {
+                margin-bottom: 20px;
+            }
+            canvas {
+                max-width: 600px;
+                margin: 20px 0;
+            }
+            <!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+
+<form id="surveyForm">
+    <div class="question1">
+        <p>1. <b>Anasaya</b>'dan memnun kaldınız mı?</p>
+        <label><input type="radio" name="serviceQuality" value="Çok Kötü">Çok Kötü</label><br>
+        <label><input type="radio" name="serviceQuality" value="Kötü"> Kötü</label><br>
+        <label><input type="radio" name="serviceQuality" value="Orta"> Orta</label><br>
+        <label><input type="radio" name="serviceQuality" value="İyi"> İyi</label><br>
+        <label><input type="radio" name="serviceQuality" value="Çok İyi"> Çok İyi</label>
+        <style>
+            .question1 {
+                position: absolute; /* veya relative, fixed gibi diğer değerler */
+                top: 150px; /* Yukarıdan ne kadar uzaklık */
+                left: 270px; /* Soldan ne kadar uzaklık */
+            }
+            
+.question1 {
+    font-weight: bold; /* Sorular kalın */
+}
+            </style>
+
+    </div>
+
+    <div class="question2">
+        <p>2.<b>İletişim</b>'den memnun kaldınız mı?</p>
+        <label><input type="radio" name="customerService" value="Çok Kötü"> Çok Kötü</label><br>
+        <label><input type="radio" name="customerService" value="Kötü"> Kötü</label><br>
+        <label><input type="radio" name="customerService" value="Orta"> Orta</label><br>
+        <label><input type="radio" name="customerService" value="İyi"> İyi</label><br>
+        <label><input type="radio" name="customerService" value="Çok İyi"> Çok İyi</label>
+        <style>
+            .question2 {
+                position: absolute; /* veya relative, fixed gibi diğer değerler */
+                top: 325px; /* Yukarıdan ne kadar uzaklık */
+                left: 270px; /* Soldan ne kadar uzaklık */
+            }
+            
+.question2 {
+    font-weight: bold; /* Sorular kalın */
+}
+            </style>
+    </div>
+
+    <div class="question3">
+        <p>3. <b>Projeler</b>'den memnun kaldınız mı?</p>
+        <label><input type="radio" name="valueForMoney" value="Çok Kötü"> Çok Kötü</label><br>
+        <label><input type="radio" name="valueForMoney" value="Kötü"> Kötü</label><br>
+        <label><input type="radio" name="valueForMoney" value="Orta"> Orta</label><br>
+        <label><input type="radio" name="valueForMoney" value="İyi"> İyi</label><br>
+        <label><input type="radio" name="valueForMoney" value="Çok İyi"> Çok İyi</label>
+        <style>
+            
+.question3 {
+    font-weight: bold; /* Sorular kalın */
+}
+            .question3 {
+                position: absolute; /* veya relative, fixed gibi diğer değerler */
+                top: 500px; /* Yukarıdan ne kadar uzaklık */
+                left: 270px; /* Soldan ne kadar uzaklık */
+            }
+            </style>
+    </div>
+
+    <div class="question4">
+        <p>4. <b>Anket</b>'ten memnun kaldınız mı?</p>
+        <label><input type="radio" name="overallSatisfaction" value="Çok Kötü"> Çok Kötü</label><br>
+        <label><input type="radio" name="overallSatisfaction" value="Kötü"> Kötü</label><br>
+        <label><input type="radio" name="overallSatisfaction" value="Orta"> Orta</label><br>
+        <label><input type="radio" name="overallSatisfaction" value="İyi"> İyi</label><br>
+        <label><input type="radio" name="overallSatisfaction" value="Çok İyi"> Çok İyi</label>
+        <style>
+            
+.question4 {
+    font-weight: bold; /* Sorular kalın */
+}
+        .question4 {
+            position: absolute; /* veya relative, fixed gibi diğer değerler */
+            top: 675px; /* Yukarıdan ne kadar uzaklık */
+            left: 270px; /* Soldan ne kadar uzaklık */
+        }
+        </style>
+        
+        <button class="submit">Gönder</button>
+
+        <style>
+        .submit {
+            position: fixed; /* Sabit konum */
+            top: 780px; /* Üstten boşluk */
+            right: 800px; /* Sağdan boşluk */
+            background-color: #6e6a6a; /* Buton rengi */
+            color: #000; /* Buton yazı rengi */
+            border: none; /* Kenar yok */
+            padding: 10px 15px; /* İç boşluk */
+            cursor: pointer; /* İmleç değişimi */
+            z-index: 1001; /* Üstte görünmesi için */
+            font-size: 16px; /* Yazı boyutu */
+            border-radius: 5px; /* Kenar yuvarlama */
+            transition: background-color 0.3s; /* Geçiş efekti */
+        }
+        
+        .submit:hover {
+            background-color: #5a5858; /* Üzerine gelince rengi değiştir */
+        }
+        </style>
+        
+    
+</form>
+
+</body>
+</html>
+
+           
+    
+</body>
+</html>

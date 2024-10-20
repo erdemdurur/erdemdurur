@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Anasayfa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="deneme2.css"> <!-- CSS dosyası -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: row; /* Yatay hizalama */
+            margin: 0; /* Varsayılan margin sıfırlanır */
+            padding: 0; /* Varsayılan padding sıfırlanır */
+            font-family: Arial, sans-serif; /* Yazı tipi */
+            background-color: #ffffff; /* Beyaz arka plan */
+            min-height: 100vh; /* En az 100% yükseklik */
+        }
+
+        h2  {
+            font-size: 2em; /* Yazı boyutu */
+            color: #333; /* Yazı rengi */
+            text-align: center; /* Ortala */
+            font-weight: bold; /* Kalın yazı */
+            width: 100%; /* Tüm genişlikte */   
+            margin: 20px 0; /* Üst ve alt boşluklar */
+        }
+
+        /* Navbar stilleri */
+        nav {
+            background-color: #cc0000; /* Koyu kırmızı arka plan rengi */
+            width: 200px; /* Navbar genişliği */
+            height: 100vh; /* Tam yükseklik */
+            position: fixed; /* Sabit konum */
+            left: -200px; /* Başlangıçta gizli */
+            transition: left 0.3s; /* Geçiş efekti */
+            z-index: 1000; /* Üstte görünmesi için */
+            display: flex;
+            flex-direction: column; /* Dikey hizalama */
+            justify-content: center; /* Dikey ortalama */
+            align-items: center; /* Yatay ortalama */
+        }
+
+        nav.open {
+            left: 0; /* Açıldığında görünür hale gelir */
+        }
+
+        nav ul {
+            list-style-type: none; /* Liste noktalarını kaldır */
+            padding: 0; /* İç boşluğu kaldır */
+            margin: 0; /* Dış boşluğu kaldır */
+            text-align: center; /* Metni ortala */
+        }
+
+        nav ul li {
+            margin: 20px 0; /* Öğeler arasında boşluk */
+        }
+
+        nav a {
+            color: white; /* Yazı rengi */
+            text-decoration: none; /* Alt çizgiyi kaldır */
+            font-weight: bold; /* Kalın yazı */
+        }
+
+        nav a:hover {
+            text-decoration: underline; /* Üzerine gelince alt çizgi ekle */
+            color: #ffcc00; /* Üzerine gelince yazı rengi değişir */
+        }
+
+        /* İçerik stilleri */
+        .content {
+            margin-left: 220px; /* Navbar genişliği kadar boşluk bırakır */
+            padding: 20px; /* İç boşluk */
+            flex: 1; /* İçerik alanını genişletir */
+            display: flex; /* Flexbox kullanarak ortalamak için */
+            flex-direction: column; /* Dikey hizalama */
+            align-items: center; /* Yatay ortalama */
+        }
+
+        /* Resim stilleri */
+        .photo-container {
+            display: flex;
+            flex-direction: column; /* Dikey hizalama */
+            align-items: center; /* Yatay ortalama */
+            margin-top: 40px; /* Üstten boşluk bırak */
+        }
+
+        .photo-container img {
+            width: 100%; /* Resmin genişliğini %100 yapar */
+            max-width: 600px; /* Maksimum genişlik */
+            height: auto; /* Yüksekliği otomatik ayarlar */
+            border-radius: 10px; /* Kenarları yuvarlar */
+        }
+
+        .toggle-btn {
+            background-color: #cc0000; /* Buton rengi */
+            color: white; /* Buton yazı rengi */
+            border: none; /* Kenarlık yok */
+            padding: 10px 15px; /* Buton içi boşluk */
+            cursor: pointer; /* İmleç değişimi */
+            position: fixed; /* Sabit konum */
+            left: 10px; /* Sol kenar */
+            top: 20px; /* Üst kenar */
+            z-index: 1001; /* Üstte görünmesi için */
+            border-radius: 5px; /* Buton kenarlarını yuvarlar */
+        }
+
+        .toggle-btn:hover {
+            background-color: #b30000; /* Üzerine gelince buton rengi değişir */
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                width: 100%; /* Mobilde tam genişlik */
+                height: auto; /* Yükseklik otomatik */
+                position: relative; /* Göreceli konum */
+            }
+
+            nav.open {
+                left: 0; /* Açıldığında görünür hale gelir */
+            }
+
+            .content {
+                margin-left: 0; /* Navbar boşluğu kaldır */
+                padding: 10px; /* Daha az iç boşluk */
+            }
+
+            .toggle-btn {
+                left: 15px; /* Mobilde biraz daha sağa kaydır */
+                top: 15px; /* Mobilde biraz daha aşağıya kaydır */
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" aria-expanded="false" onclick="toggleNavbar()">Seçenekler</button>
+
+    <nav id="sidebar">
+        <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+            <li><a href="projeler.html">Projeler</a></li>
+            <li><a href="anket.html">Anket</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h2>Anasayfa</h2>
+        
+        <div class="photo-container">
+            <img src="erdemson.png" alt="ERDEM DURUR"/>
+        </div>
+        <h3>Hakkımda</h3>
+        <style>
+        h3 {
+            position: relative; /* Eğer kesin bir konum istiyorsan absolute kullanabilirsin */
+            top: -20px; /* Yukarıdan 20px boşluk bırak */
+            left: -400px; /* Soldan 0px boşluk */
+            text-align: left; /* Sayın Hüseyin Hocam sevgilerle... */
+        }
+        </style>
+        <div class="metin2">
+        <p>
+            Merhaba,ben Erdem Durur bir bilgisayar mühendisliği öğrencisiyim. Teknolojiye olan tutkum beni<br> 
+            bu alana yönlendirdi ve her gün yeni şeyler öğrenmek için sabırsızlanıyorum. Programlama,<br>
+             yapay zeka ve veri analizi konularına özel ilgi duyuyorum. Boş zamanlarımda oyun oynamayı<br>
+              ve teknoloji haberlerini takip etmeyi seviyorum. Gelecekte, öğrendiğim bilgileri kullanarak<br>
+             insanların hayatını kolaylaştıracak projeler geliştirmeyi hedefliyorum.
+        </p>
+        <style>
+            .metin2 {
+                position: absolute; /* veya relative, fixed gibi diğer değerler */
+                top: 600px; /* Yukarıdan ne kadar uzaklık */
+                left: 420px; /* Soldan ne kadar uzaklık */
+            }
+            </style>
+        <p>                                
+                    <br>
+                    <br>
+                   <br>
+
+
+        </p>
+       
+
+ 
+         <div class="metin4">
+         
+         <h3><b>Eğitim Bilgisi</b></h3>
+         <style>
+             .metin4 {
+                 position: absolute;
+                 top: 150px;
+                 left: 400px;
+             }
+         </style>
+         
+        <p class="metin3">Düzce Üniversitesi|Eylül 2024-Devam ediyor.            
+
+            </p>
+        <style>
+        .metin3 {
+            position: relative; /* Göreceli pozisyon */
+            top: 0px; /* Aşağıdan 50px kaydır */
+            left: -400px; /* Soldan 20px kaydır */
+        }
+        </style>
+        </div>
+        
+    <script>
+        function toggleNavbar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+            const button = document.querySelector('.toggle-btn');
+            const isOpen = sidebar.classList.contains('open');
+            button.setAttribute('aria-expanded', isOpen);
+        }
+    </script>
+ <!DOCTYPE html>
+ <html lang="tr">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+         body {
+             font-family: Arial, sans-serif;
+             position: relative; /* Pop-up'ı doğru konumlandırmak için */
+         }
+ 
+         /* Pop-up stil */
+         .popup {
+             display: none; /* Başlangıçta gizli */
+             position: fixed; /* Sabit konum */
+             right: -300px; /* Sağdan başlangıç noktası */
+             top: 50%; /* Ortala */
+             transform: translateY(-50%); /* Dikey ortalama */
+             width: 300px; /* Genişlik */
+             background-color: white; /* Arka plan rengi */
+             padding: 20px; /* İç boşluk */
+             border: 2px solid red; /* Kırmızı çerçeve */
+             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+             transition: right 0.3s; /* Geçiş efekti */
+             z-index: 1000; /* Üstte görünmesi için */
+         }
+ 
+         /* Arka planı karartmak için stil */
+         .overlay {
+             display: none; /* Başlangıçta gizli */
+             position: fixed; /* Sabit konum */
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background-color: rgba(0, 0, 0, 0.5); /* Yarı saydam siyah */
+             z-index: 999; /* Pop-up'ın arkasında */
+         }
+ 
+         /* Açma butonu stili */
+         .open-btn {
+             position: fixed; /* Sabit konum */
+             top: 270px; /* Üstten boşluk */
+             right: 0px; /* Sağdan boşluk */
+             background-color: #ea1fee; /* Buton rengi */
+             color: white; /* Buton yazı rengi */
+             border: none; /* Kenar yok */
+             padding: 10px 15px; /* İç boşluk */
+             cursor: pointer; /* İmleç değişimi */
+             z-index: 1001; /* Üstte görünmesi için */
+         }
+     </style>
+ </head>
+ <body>
+ 
+     <button class="open-btn" onclick="togglePopup()">Reklam</button>
+ 
+     <div class="overlay" id="overlay" onclick="togglePopup()"></div>
+     <div class="popup" id="popup" onclick="event.stopPropagation();">
+         <h2>Henüz bir sponsorumuz yok</h2>
+         <p>İsterseniz sponsor olabilirsiniz.(lütfen olun$<3 )</p>
+         <button onclick="togglePopup()">Kapat</button>
+     </div>
+ 
+     <script>
+         function togglePopup() {
+             const popup = document.getElementById('popup');
+             const overlay = document.getElementById('overlay');
+ 
+             if (popup.style.display === 'block') {
+                 popup.style.right = '-300px'; // Sağdan gizle
+                 setTimeout(() => {
+                     overlay.style.display = 'none'; // Arka planı gizle
+                     popup.style.display = 'none'; // Pop-up'ı gizle
+                 }, 300); // Animasyon süresince bekle
+             } else {
+                 overlay.style.display = 'block'; // Arka planı göster
+                 popup.style.display = 'block'; // Pop-up'ı göster
+                 setTimeout(() => {
+                     popup.style.right = '0'; // Sağdan açılacak
+                 }, 10); // Animasyon etkisi için küçük bir gecikme
+             }
+         }
+     </script>
+ 
+ </body>
+ </html>
+    
+</body>
+</html>
